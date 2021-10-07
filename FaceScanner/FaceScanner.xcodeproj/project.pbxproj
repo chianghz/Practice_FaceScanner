@@ -7,27 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A7AF434270EC9BF005D9F03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF433270EC9BF005D9F03 /* AppDelegate.swift */; };
-		0A7AF436270EC9BF005D9F03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF435270EC9BF005D9F03 /* SceneDelegate.swift */; };
-		0A7AF438270EC9BF005D9F03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF437270EC9BF005D9F03 /* ViewController.swift */; };
-		0A7AF43B270EC9BF005D9F03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF439270EC9BF005D9F03 /* Main.storyboard */; };
-		0A7AF43D270EC9C2005D9F03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF43C270EC9C2005D9F03 /* Assets.xcassets */; };
-		0A7AF440270EC9C2005D9F03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF43E270EC9C2005D9F03 /* LaunchScreen.storyboard */; };
+		0A7AF45B270EEAEC005D9F03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF45A270EEAEC005D9F03 /* AppDelegate.swift */; };
+		0A7AF45D270EEAEC005D9F03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF45C270EEAEC005D9F03 /* SceneDelegate.swift */; };
+		0A7AF45F270EEAEC005D9F03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF45E270EEAEC005D9F03 /* ViewController.swift */; };
+		0A7AF464270EEAEF005D9F03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF463270EEAEF005D9F03 /* Assets.xcassets */; };
+		0A7AF467270EEAEF005D9F03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF465270EEAEF005D9F03 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A7AF430270EC9BF005D9F03 /* FaceScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A7AF433270EC9BF005D9F03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A7AF435270EC9BF005D9F03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0A7AF437270EC9BF005D9F03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0A7AF43A270EC9BF005D9F03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0A7AF43C270EC9C2005D9F03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A7AF43F270EC9C2005D9F03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0A7AF441270EC9C2005D9F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A7AF457270EEAEC005D9F03 /* FaceScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A7AF45A270EEAEC005D9F03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0A7AF45C270EEAEC005D9F03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0A7AF45E270EEAEC005D9F03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A7AF463270EEAEF005D9F03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A7AF466270EEAEF005D9F03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0A7AF468270EEAEF005D9F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A7AF42D270EC9BF005D9F03 /* Frameworks */ = {
+		0A7AF454270EEAEC005D9F03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,46 +35,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A7AF427270EC9BF005D9F03 = {
+		0A7AF44E270EEAEC005D9F03 = {
 			isa = PBXGroup;
 			children = (
-				0A7AF432270EC9BF005D9F03 /* FaceScanner */,
-				0A7AF431270EC9BF005D9F03 /* Products */,
+				0A7AF459270EEAEC005D9F03 /* FaceScanner */,
+				0A7AF458270EEAEC005D9F03 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0A7AF431270EC9BF005D9F03 /* Products */ = {
+		0A7AF458270EEAEC005D9F03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A7AF430270EC9BF005D9F03 /* FaceScanner.app */,
+				0A7AF457270EEAEC005D9F03 /* FaceScanner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A7AF432270EC9BF005D9F03 /* FaceScanner */ = {
+		0A7AF459270EEAEC005D9F03 /* FaceScanner */ = {
 			isa = PBXGroup;
 			children = (
-				0A7AF433270EC9BF005D9F03 /* AppDelegate.swift */,
-				0A7AF435270EC9BF005D9F03 /* SceneDelegate.swift */,
-				0A7AF437270EC9BF005D9F03 /* ViewController.swift */,
-				0A7AF439270EC9BF005D9F03 /* Main.storyboard */,
-				0A7AF43C270EC9C2005D9F03 /* Assets.xcassets */,
-				0A7AF43E270EC9C2005D9F03 /* LaunchScreen.storyboard */,
-				0A7AF441270EC9C2005D9F03 /* Info.plist */,
+				0A7AF46F270EEE03005D9F03 /* Application */,
+				0A7AF470270EEE12005D9F03 /* Controller */,
+				0A7AF471270EEF5D005D9F03 /* Model */,
+				0A7AF46E270EEDF3005D9F03 /* Resource */,
+				0A7AF468270EEAEF005D9F03 /* Info.plist */,
 			);
 			path = FaceScanner;
+			sourceTree = "<group>";
+		};
+		0A7AF46E270EEDF3005D9F03 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0A7AF463270EEAEF005D9F03 /* Assets.xcassets */,
+				0A7AF465270EEAEF005D9F03 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		0A7AF46F270EEE03005D9F03 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0A7AF45A270EEAEC005D9F03 /* AppDelegate.swift */,
+				0A7AF45C270EEAEC005D9F03 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		0A7AF470270EEE12005D9F03 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0A7AF45E270EEAEC005D9F03 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0A7AF471270EEF5D005D9F03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A7AF42F270EC9BF005D9F03 /* FaceScanner */ = {
+		0A7AF456270EEAEC005D9F03 /* FaceScanner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A7AF444270EC9C2005D9F03 /* Build configuration list for PBXNativeTarget "FaceScanner" */;
+			buildConfigurationList = 0A7AF46B270EEAEF005D9F03 /* Build configuration list for PBXNativeTarget "FaceScanner" */;
 			buildPhases = (
-				0A7AF42C270EC9BF005D9F03 /* Sources */,
-				0A7AF42D270EC9BF005D9F03 /* Frameworks */,
-				0A7AF42E270EC9BF005D9F03 /* Resources */,
+				0A7AF453270EEAEC005D9F03 /* Sources */,
+				0A7AF454270EEAEC005D9F03 /* Frameworks */,
+				0A7AF455270EEAEC005D9F03 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -84,25 +113,25 @@
 			);
 			name = FaceScanner;
 			productName = FaceScanner;
-			productReference = 0A7AF430270EC9BF005D9F03 /* FaceScanner.app */;
+			productReference = 0A7AF457270EEAEC005D9F03 /* FaceScanner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0A7AF428270EC9BF005D9F03 /* Project object */ = {
+		0A7AF44F270EEAEC005D9F03 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
-					0A7AF42F270EC9BF005D9F03 = {
+					0A7AF456270EEAEC005D9F03 = {
 						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
-			buildConfigurationList = 0A7AF42B270EC9BF005D9F03 /* Build configuration list for PBXProject "FaceScanner" */;
+			buildConfigurationList = 0A7AF452270EEAEC005D9F03 /* Build configuration list for PBXProject "FaceScanner" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +139,46 @@
 				en,
 				Base,
 			);
-			mainGroup = 0A7AF427270EC9BF005D9F03;
-			productRefGroup = 0A7AF431270EC9BF005D9F03 /* Products */;
+			mainGroup = 0A7AF44E270EEAEC005D9F03;
+			productRefGroup = 0A7AF458270EEAEC005D9F03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A7AF42F270EC9BF005D9F03 /* FaceScanner */,
+				0A7AF456270EEAEC005D9F03 /* FaceScanner */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0A7AF42E270EC9BF005D9F03 /* Resources */ = {
+		0A7AF455270EEAEC005D9F03 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A7AF440270EC9C2005D9F03 /* LaunchScreen.storyboard in Resources */,
-				0A7AF43D270EC9C2005D9F03 /* Assets.xcassets in Resources */,
-				0A7AF43B270EC9BF005D9F03 /* Main.storyboard in Resources */,
+				0A7AF464270EEAEF005D9F03 /* Assets.xcassets in Resources */,
+				0A7AF467270EEAEF005D9F03 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0A7AF42C270EC9BF005D9F03 /* Sources */ = {
+		0A7AF453270EEAEC005D9F03 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A7AF438270EC9BF005D9F03 /* ViewController.swift in Sources */,
-				0A7AF434270EC9BF005D9F03 /* AppDelegate.swift in Sources */,
-				0A7AF436270EC9BF005D9F03 /* SceneDelegate.swift in Sources */,
+				0A7AF45B270EEAEC005D9F03 /* AppDelegate.swift in Sources */,
+				0A7AF45D270EEAEC005D9F03 /* SceneDelegate.swift in Sources */,
+				0A7AF45F270EEAEC005D9F03 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0A7AF439270EC9BF005D9F03 /* Main.storyboard */ = {
+		0A7AF465270EEAEF005D9F03 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0A7AF43A270EC9BF005D9F03 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0A7AF43E270EC9C2005D9F03 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A7AF43F270EC9C2005D9F03 /* Base */,
+				0A7AF466270EEAEF005D9F03 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +186,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0A7AF442270EC9C2005D9F03 /* Debug */ = {
+		0A7AF469270EEAEF005D9F03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -227,7 +247,7 @@
 			};
 			name = Debug;
 		};
-		0A7AF443270EC9C2005D9F03 /* Release */ = {
+		0A7AF46A270EEAEF005D9F03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -282,7 +302,7 @@
 			};
 			name = Release;
 		};
-		0A7AF445270EC9C2005D9F03 /* Debug */ = {
+		0A7AF46C270EEAEF005D9F03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -294,7 +314,6 @@
 				INFOPLIST_FILE = FaceScanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,7 +329,7 @@
 			};
 			name = Debug;
 		};
-		0A7AF446270EC9C2005D9F03 /* Release */ = {
+		0A7AF46D270EEAEF005D9F03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -322,7 +341,6 @@
 				INFOPLIST_FILE = FaceScanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -341,25 +359,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A7AF42B270EC9BF005D9F03 /* Build configuration list for PBXProject "FaceScanner" */ = {
+		0A7AF452270EEAEC005D9F03 /* Build configuration list for PBXProject "FaceScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A7AF442270EC9C2005D9F03 /* Debug */,
-				0A7AF443270EC9C2005D9F03 /* Release */,
+				0A7AF469270EEAEF005D9F03 /* Debug */,
+				0A7AF46A270EEAEF005D9F03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A7AF444270EC9C2005D9F03 /* Build configuration list for PBXNativeTarget "FaceScanner" */ = {
+		0A7AF46B270EEAEF005D9F03 /* Build configuration list for PBXNativeTarget "FaceScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A7AF445270EC9C2005D9F03 /* Debug */,
-				0A7AF446270EC9C2005D9F03 /* Release */,
+				0A7AF46C270EEAEF005D9F03 /* Debug */,
+				0A7AF46D270EEAEF005D9F03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0A7AF428270EC9BF005D9F03 /* Project object */;
+	rootObject = 0A7AF44F270EEAEC005D9F03 /* Project object */;
 }
