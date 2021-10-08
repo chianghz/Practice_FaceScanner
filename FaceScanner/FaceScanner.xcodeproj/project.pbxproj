@@ -9,19 +9,29 @@
 /* Begin PBXBuildFile section */
 		0A7AF45B270EEAEC005D9F03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF45A270EEAEC005D9F03 /* AppDelegate.swift */; };
 		0A7AF45D270EEAEC005D9F03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF45C270EEAEC005D9F03 /* SceneDelegate.swift */; };
-		0A7AF45F270EEAEC005D9F03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF45E270EEAEC005D9F03 /* ViewController.swift */; };
 		0A7AF464270EEAEF005D9F03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF463270EEAEF005D9F03 /* Assets.xcassets */; };
 		0A7AF467270EEAEF005D9F03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF465270EEAEF005D9F03 /* LaunchScreen.storyboard */; };
+		0A7AF475270EF2C5005D9F03 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF473270EF2C5005D9F03 /* HomeViewController.swift */; };
+		0A7AF476270EF2C5005D9F03 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF474270EF2C5005D9F03 /* HomeViewController.xib */; };
+		0A7AF47B270EFA06005D9F03 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF479270EFA06005D9F03 /* ScannerViewController.swift */; };
+		0A7AF47C270EFA06005D9F03 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF47A270EFA06005D9F03 /* ScannerViewController.xib */; };
+		0A7AF480270EFEE5005D9F03 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF47F270EFEE5005D9F03 /* ScannerViewModel.swift */; };
+		0A7AF482270EFF07005D9F03 /* ScannerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF481270EFF07005D9F03 /* ScannerTimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A7AF457270EEAEC005D9F03 /* FaceScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A7AF45A270EEAEC005D9F03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A7AF45C270EEAEC005D9F03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0A7AF45E270EEAEC005D9F03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0A7AF463270EEAEF005D9F03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A7AF466270EEAEF005D9F03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A7AF468270EEAEF005D9F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A7AF473270EF2C5005D9F03 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0A7AF474270EF2C5005D9F03 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		0A7AF479270EFA06005D9F03 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		0A7AF47A270EFA06005D9F03 /* ScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
+		0A7AF47F270EFEE5005D9F03 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		0A7AF481270EFF07005D9F03 /* ScannerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +94,8 @@
 		0A7AF470270EEE12005D9F03 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0A7AF45E270EEAEC005D9F03 /* ViewController.swift */,
+				0A7AF477270EF2CC005D9F03 /* Home */,
+				0A7AF478270EF9E0005D9F03 /* Scanner */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -94,6 +105,34 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0A7AF477270EF2CC005D9F03 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0A7AF473270EF2C5005D9F03 /* HomeViewController.swift */,
+				0A7AF474270EF2C5005D9F03 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0A7AF478270EF9E0005D9F03 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				0A7AF47D270EFEC4005D9F03 /* View */,
+				0A7AF479270EFA06005D9F03 /* ScannerViewController.swift */,
+				0A7AF47A270EFA06005D9F03 /* ScannerViewController.xib */,
+				0A7AF47F270EFEE5005D9F03 /* ScannerViewModel.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		0A7AF47D270EFEC4005D9F03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A7AF481270EFF07005D9F03 /* ScannerTimerView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +194,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A7AF464270EEAEF005D9F03 /* Assets.xcassets in Resources */,
+				0A7AF476270EF2C5005D9F03 /* HomeViewController.xib in Resources */,
 				0A7AF467270EEAEF005D9F03 /* LaunchScreen.storyboard in Resources */,
+				0A7AF47C270EFA06005D9F03 /* ScannerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,9 +207,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A7AF480270EFEE5005D9F03 /* ScannerViewModel.swift in Sources */,
+				0A7AF482270EFF07005D9F03 /* ScannerTimerView.swift in Sources */,
 				0A7AF45B270EEAEC005D9F03 /* AppDelegate.swift in Sources */,
+				0A7AF475270EF2C5005D9F03 /* HomeViewController.swift in Sources */,
+				0A7AF47B270EFA06005D9F03 /* ScannerViewController.swift in Sources */,
 				0A7AF45D270EEAEC005D9F03 /* SceneDelegate.swift in Sources */,
-				0A7AF45F270EEAEC005D9F03 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
