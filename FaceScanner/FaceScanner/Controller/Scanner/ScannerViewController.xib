@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,6 +14,9 @@
                 <outlet property="closeButton" destination="c61-Nu-Jph" id="UVw-XJ-rPV"/>
                 <outlet property="messageLabel" destination="Kn6-rM-Zw0" id="Ncv-Ki-bx9"/>
                 <outlet property="stackView" destination="dVj-mY-bTd" id="3rH-5N-tcM"/>
+                <outlet property="timerContainerView1" destination="lUv-FL-HMD" id="jIx-nK-K6H"/>
+                <outlet property="timerContainerView2" destination="nBV-uo-fPB" id="0r5-DS-eS9"/>
+                <outlet property="timerContainerView3" destination="u1o-Sh-hf3" id="rC9-fK-zNw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,13 +53,12 @@
                         <constraint firstAttribute="height" constant="32" id="lpD-tn-wHo"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c61-Nu-Jph">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c61-Nu-Jph">
                     <rect key="frame" x="366" y="76" width="32" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="GPr-mE-6Kt"/>
                         <constraint firstAttribute="width" constant="32" id="JI9-oJ-BOC"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="btn_close_n"/>
                     <connections>
                         <action selector="closeButtonPressed:" destination="-1" eventType="touchUpInside" id="zHq-OS-k9Z"/>

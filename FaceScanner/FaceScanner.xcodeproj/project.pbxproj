@@ -16,7 +16,9 @@
 		0A7AF47B270EFA06005D9F03 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF479270EFA06005D9F03 /* ScannerViewController.swift */; };
 		0A7AF47C270EFA06005D9F03 /* ScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7AF47A270EFA06005D9F03 /* ScannerViewController.xib */; };
 		0A7AF480270EFEE5005D9F03 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF47F270EFEE5005D9F03 /* ScannerViewModel.swift */; };
-		0A7AF482270EFF07005D9F03 /* ScannerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF481270EFF07005D9F03 /* ScannerTimerView.swift */; };
+		0A7AF485270FEDEC005D9F03 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A7AF484270FEDEC005D9F03 /* SnapKit */; };
+		0A7AF48727102887005D9F03 /* CircleProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */; };
+		0A8A0AD1271032A2000ED19D /* ScannerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +33,8 @@
 		0A7AF479270EFA06005D9F03 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		0A7AF47A270EFA06005D9F03 /* ScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
 		0A7AF47F270EFEE5005D9F03 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
-		0A7AF481270EFF07005D9F03 /* ScannerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTimerView.swift; sourceTree = "<group>"; };
+		0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBarView.swift; sourceTree = "<group>"; };
+		0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A7AF485270FEDEC005D9F03 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +72,7 @@
 				0A7AF470270EEE12005D9F03 /* Controller */,
 				0A7AF471270EEF5D005D9F03 /* Model */,
 				0A7AF46E270EEDF3005D9F03 /* Resource */,
+				0A7AF48827102B1D005D9F03 /* View */,
 				0A7AF468270EEAEF005D9F03 /* Info.plist */,
 			);
 			path = FaceScanner;
@@ -130,7 +135,15 @@
 		0A7AF47D270EFEC4005D9F03 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A7AF481270EFF07005D9F03 /* ScannerTimerView.swift */,
+				0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0A7AF48827102B1D005D9F03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +164,9 @@
 			dependencies = (
 			);
 			name = FaceScanner;
+			packageProductDependencies = (
+				0A7AF484270FEDEC005D9F03 /* SnapKit */,
+			);
 			productName = FaceScanner;
 			productReference = 0A7AF457270EEAEC005D9F03 /* FaceScanner.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +195,9 @@
 				Base,
 			);
 			mainGroup = 0A7AF44E270EEAEC005D9F03;
+			packageReferences = (
+				0A7AF483270FEDEC005D9F03 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 0A7AF458270EEAEC005D9F03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -207,11 +226,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A7AF480270EFEE5005D9F03 /* ScannerViewModel.swift in Sources */,
-				0A7AF482270EFF07005D9F03 /* ScannerTimerView.swift in Sources */,
 				0A7AF45B270EEAEC005D9F03 /* AppDelegate.swift in Sources */,
+				0A7AF48727102887005D9F03 /* CircleProgressBarView.swift in Sources */,
 				0A7AF475270EF2C5005D9F03 /* HomeViewController.swift in Sources */,
+				0A8A0AD1271032A2000ED19D /* ScannerTimerView.swift in Sources */,
 				0A7AF47B270EFA06005D9F03 /* ScannerViewController.swift in Sources */,
+				0A7AF480270EFEE5005D9F03 /* ScannerViewModel.swift in Sources */,
 				0A7AF45D270EEAEC005D9F03 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -336,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -422,6 +442,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A7AF483270FEDEC005D9F03 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A7AF484270FEDEC005D9F03 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A7AF483270FEDEC005D9F03 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A7AF44F270EEAEC005D9F03 /* Project object */;
 }
