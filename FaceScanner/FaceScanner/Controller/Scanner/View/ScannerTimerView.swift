@@ -35,7 +35,6 @@ class ScannerTimerView: UIView {
     private let finishView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "myYellow")
-        view.isHidden = true
         let checkIcon = UIImageView(image: UIImage(named: "ico_check"))
         view.addSubview(checkIcon)
         checkIcon.snp.makeConstraints { $0.center.equalToSuperview() }
@@ -48,6 +47,8 @@ class ScannerTimerView: UIView {
 
         self.initConstraints()
         self.label.text = text
+
+        self.reset()
     }
 
     required init?(coder: NSCoder) {
@@ -63,6 +64,10 @@ class ScannerTimerView: UIView {
 
     func startAnimation() {
         setState(.animating)
+    }
+
+    func reset() {
+        setState(.ready)
     }
 }
 
@@ -81,6 +86,8 @@ private extension ScannerTimerView {
         switch state {
         case .ready:
             label.textColor = UIColor.white.withAlphaComponent(0.3)
+            finishView.isHidden = true
+            circleProgressView.isHidden = false
 
         case .animating:
             label.textColor = .white

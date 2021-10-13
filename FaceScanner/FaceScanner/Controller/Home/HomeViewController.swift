@@ -24,6 +24,7 @@ private extension HomeViewController {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(startButtonViewTapped))
         startButtonView.addGestureRecognizer(tapGR)
         startButtonView.isUserInteractionEnabled = true
+        startButtonView.layer.cornerRadius = 10
     }
 
     @objc func startButtonViewTapped() {

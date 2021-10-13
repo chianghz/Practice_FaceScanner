@@ -19,9 +19,15 @@ class ScannerViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
 
-    private let timerView1 = ScannerTimerView(text: "1", duration: 3)
-    private let timerView2 = ScannerTimerView(text: "2", duration: 3)
-    private let timerView3 = ScannerTimerView(text: "3", duration: 3)
+    private let timerView1 = ScannerTimerView(text: "1", duration: 1)
+    private let timerView2 = ScannerTimerView(text: "2", duration: 1)
+    private let timerView3 = ScannerTimerView(text: "3", duration: 1)
+
+    private lazy var finishDialog: FinishDialogViewController = {
+        let dialog = FinishDialogViewController()
+        dialog.delegate = self
+        return dialog
+    }()
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -92,10 +98,28 @@ private extension ScannerViewController {
                 switch state {
                 case .ready: break
                 case .animating: self?.messageLabel.text = "请微微笑"
-                case .finished: print("THE END")
+                case .finished: self?.showFinishDialog()
                 }
             }
             .store(in: &cancellables)
     }
+}
 
+// MARK: -
+extension ScannerViewController: FinishDialogViewControllerDelegate {
+
+    func showFinishDialog() {
+        finishDialog.modalPresentationStyle = .overFullScreen
+        finishDialog.modalTransitionStyle = .crossDissolve
+        self.present(finishDialog, animated: true, completion: nil)
+    }
+
+    func finishDialogViewController(_ vc: FinishDialogViewController, didPressCloseButton: Void) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func finishDialogViewController(_ vc: FinishDialogViewController, didPressAgainButton: Void) {
+        [timerView1, timerView2, timerView3].forEach { $0.reset() }
+        timerView1.startAnimation()
+    }
 }

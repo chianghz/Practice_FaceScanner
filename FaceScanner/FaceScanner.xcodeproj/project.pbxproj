@@ -19,6 +19,8 @@
 		0A7AF485270FEDEC005D9F03 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A7AF484270FEDEC005D9F03 /* SnapKit */; };
 		0A7AF48727102887005D9F03 /* CircleProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */; };
 		0A8A0AD1271032A2000ED19D /* ScannerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */; };
+		0AE38B632716AC75001709BB /* FinishDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE38B612716AC75001709BB /* FinishDialogViewController.swift */; };
+		0AE38B642716AC75001709BB /* FinishDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE38B622716AC75001709BB /* FinishDialogViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		0A7AF47F270EFEE5005D9F03 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBarView.swift; sourceTree = "<group>"; };
 		0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTimerView.swift; sourceTree = "<group>"; };
+		0AE38B612716AC75001709BB /* FinishDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishDialogViewController.swift; sourceTree = "<group>"; };
+		0AE38B622716AC75001709BB /* FinishDialogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishDialogViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		0A7AF470270EEE12005D9F03 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0AE38B602716984D001709BB /* FinishDialog */,
 				0A7AF477270EF2CC005D9F03 /* Home */,
 				0A7AF478270EF9E0005D9F03 /* Scanner */,
 			);
@@ -146,6 +151,15 @@
 				0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0AE38B602716984D001709BB /* FinishDialog */ = {
+			isa = PBXGroup;
+			children = (
+				0AE38B612716AC75001709BB /* FinishDialogViewController.swift */,
+				0AE38B622716AC75001709BB /* FinishDialogViewController.xib */,
+			);
+			path = FinishDialog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A7AF464270EEAEF005D9F03 /* Assets.xcassets in Resources */,
+				0AE38B642716AC75001709BB /* FinishDialogViewController.xib in Resources */,
 				0A7AF476270EF2C5005D9F03 /* HomeViewController.xib in Resources */,
 				0A7AF467270EEAEF005D9F03 /* LaunchScreen.storyboard in Resources */,
 				0A7AF47C270EFA06005D9F03 /* ScannerViewController.xib in Resources */,
@@ -228,6 +243,7 @@
 			files = (
 				0A7AF45B270EEAEC005D9F03 /* AppDelegate.swift in Sources */,
 				0A7AF48727102887005D9F03 /* CircleProgressBarView.swift in Sources */,
+				0AE38B632716AC75001709BB /* FinishDialogViewController.swift in Sources */,
 				0A7AF475270EF2C5005D9F03 /* HomeViewController.swift in Sources */,
 				0A8A0AD1271032A2000ED19D /* ScannerTimerView.swift in Sources */,
 				0A7AF47B270EFA06005D9F03 /* ScannerViewController.swift in Sources */,
