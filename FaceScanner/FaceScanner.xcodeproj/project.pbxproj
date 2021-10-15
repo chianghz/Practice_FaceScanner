@@ -73,10 +73,11 @@
 			isa = PBXGroup;
 			children = (
 				0A7AF46F270EEE03005D9F03 /* Application */,
-				0A7AF470270EEE12005D9F03 /* Controller */,
+				0AE38B9627198011001709BB /* Helper */,
 				0A7AF471270EEF5D005D9F03 /* Model */,
 				0A7AF46E270EEDF3005D9F03 /* Resource */,
 				0A7AF48827102B1D005D9F03 /* View */,
+				0A7AF470270EEE12005D9F03 /* View Controller */,
 				0A7AF468270EEAEF005D9F03 /* Info.plist */,
 			);
 			path = FaceScanner;
@@ -100,14 +101,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		0A7AF470270EEE12005D9F03 /* Controller */ = {
+		0A7AF470270EEE12005D9F03 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				0AE38B602716984D001709BB /* FinishDialog */,
 				0A7AF477270EF2CC005D9F03 /* Home */,
 				0A7AF478270EF9E0005D9F03 /* Scanner */,
 			);
-			path = Controller;
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		0A7AF471270EEF5D005D9F03 /* Model */ = {

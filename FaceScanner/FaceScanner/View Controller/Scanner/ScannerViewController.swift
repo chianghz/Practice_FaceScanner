@@ -10,6 +10,8 @@ import Combine
 
 class ScannerViewController: UIViewController {
 
+    // MARK: - View Components
+
     @IBOutlet weak var closeButton: UIButton!
 
     @IBOutlet weak var stackView: UIStackView!
@@ -29,7 +31,13 @@ class ScannerViewController: UIViewController {
         return dialog
     }()
 
+    private let previewContainer = UIView()
+
+    // MARK: - Variables
+
     private var cancellables = Set<AnyCancellable>()
+
+    private lazy var cameraController = CameraController(previewContainer: self.previewContainer)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +46,16 @@ class ScannerViewController: UIViewController {
         initConstraints()
 
         bindTimerViews()
-    }
+        bindCameraController()
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        cameraController.checkPermissions { [weak self] authorized in
+            guard authorized else { return }
+            self?.cameraController.setup()
 
-        timerView1.startAnimation()
+            DispatchQueue.main.async {
+                self?.timerView1.startAnimation()
+            }
+        }
     }
 
     @IBAction func closeButtonPressed(_ sender: Any) {
@@ -103,10 +115,29 @@ private extension ScannerViewController {
             }
             .store(in: &cancellables)
     }
+
+    func bindCameraController() {
+        cameraController.errorCatched
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                let alert = UIAlertController(title: error.string, message: nil, preferredStyle: .alert)
+                let closeAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(closeAction)
+                self?.present(alert, animated: true, completion: nil)
+            }
+            .store(in: &cancellables)
+
+//        cameraController.imageCaptured
+//            .receive(on: DispatchQueue.main)
+//            .sink { [weak self] image in
+//                self?.capturedImageView.image = image
+//            }
+//            .store(in: &cancellables)
+    }
 }
 
-// MARK: -
 extension ScannerViewController: FinishDialogViewControllerDelegate {
+    // MARK: - FinishDialogViewControllerDelegate
 
     func showFinishDialog() {
         finishDialog.modalPresentationStyle = .overFullScreen
