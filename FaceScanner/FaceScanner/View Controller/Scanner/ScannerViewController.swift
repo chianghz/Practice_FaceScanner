@@ -21,9 +21,9 @@ class ScannerViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
 
-    private let timerView1 = ScannerTimerView(text: "1", duration: 1)
-    private let timerView2 = ScannerTimerView(text: "2", duration: 1)
-    private let timerView3 = ScannerTimerView(text: "3", duration: 1)
+    private let timerView1 = ScannerTimerView(text: "1", duration: 3)
+    private let timerView2 = ScannerTimerView(text: "2", duration: 3)
+    private let timerView3 = ScannerTimerView(text: "3", duration: 3)
 
     private lazy var finishDialog: FinishDialogViewController = {
         let dialog = FinishDialogViewController()
@@ -31,7 +31,11 @@ class ScannerViewController: UIViewController {
         return dialog
     }()
 
-    private let previewContainer = UIView()
+    private let previewContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        return view
+    }()
 
     // MARK: - Variables
 
@@ -79,6 +83,9 @@ private extension ScannerViewController {
         timerView2.snp.makeConstraints { $0.edges.equalToSuperview() }
         timerContainerView3.addSubview(timerView3)
         timerView3.snp.makeConstraints { $0.edges.equalToSuperview() }
+
+        view.insertSubview(previewContainer, at: 0)
+        previewContainer.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
 
     func bindTimerViews() {

@@ -21,6 +21,8 @@
 		0A8A0AD1271032A2000ED19D /* ScannerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */; };
 		0AE38B632716AC75001709BB /* FinishDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE38B612716AC75001709BB /* FinishDialogViewController.swift */; };
 		0AE38B642716AC75001709BB /* FinishDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE38B622716AC75001709BB /* FinishDialogViewController.xib */; };
+		0AE38B9A271980B8001709BB /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE38B98271980B8001709BB /* CameraController.swift */; };
+		0AE38B9B271980B8001709BB /* CameraController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE38B99271980B8001709BB /* CameraController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTimerView.swift; sourceTree = "<group>"; };
 		0AE38B612716AC75001709BB /* FinishDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishDialogViewController.swift; sourceTree = "<group>"; };
 		0AE38B622716AC75001709BB /* FinishDialogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishDialogViewController.xib; sourceTree = "<group>"; };
+		0AE38B98271980B8001709BB /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		0AE38B99271980B8001709BB /* CameraController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CameraController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,23 @@
 			path = FinishDialog;
 			sourceTree = "<group>";
 		};
+		0AE38B9627198011001709BB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0AE38B97271980B8001709BB /* CameraController */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		0AE38B97271980B8001709BB /* CameraController */ = {
+			isa = PBXGroup;
+			children = (
+				0AE38B99271980B8001709BB /* CameraController+Extension.swift */,
+				0AE38B98271980B8001709BB /* CameraController.swift */,
+			);
+			path = CameraController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A7AF45B270EEAEC005D9F03 /* AppDelegate.swift in Sources */,
+				0AE38B9B271980B8001709BB /* CameraController+Extension.swift in Sources */,
+				0AE38B9A271980B8001709BB /* CameraController.swift in Sources */,
 				0A7AF48727102887005D9F03 /* CircleProgressBarView.swift in Sources */,
 				0AE38B632716AC75001709BB /* FinishDialogViewController.swift in Sources */,
 				0A7AF475270EF2C5005D9F03 /* HomeViewController.swift in Sources */,
@@ -393,6 +416,7 @@
 				DEVELOPMENT_TEAM = GL6EMPBP74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FaceScanner/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "App 需要您的同意, 才能訪問相機";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -420,6 +444,7 @@
 				DEVELOPMENT_TEAM = GL6EMPBP74;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FaceScanner/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "App 需要您的同意, 才能訪問相機";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
