@@ -19,9 +19,9 @@ class ScannerViewController: UIViewController {
     @IBOutlet weak var timerContainerView2: UIView!
     @IBOutlet weak var timerContainerView3: UIView!
 
-    private let timerView1 = ScannerTimerView(text: "1", duration: 3)
-    private let timerView2 = ScannerTimerView(text: "2", duration: 3)
-    private let timerView3 = ScannerTimerView(text: "3", duration: 3)
+    private lazy var timerView1 = ScannerTimerView(text: "1", duration: self.stepSeconds)
+    private lazy var timerView2 = ScannerTimerView(text: "2", duration: self.stepSeconds)
+    private lazy var timerView3 = ScannerTimerView(text: "3", duration: self.stepSeconds)
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageViewFace: UIImageView!
@@ -57,7 +57,15 @@ class ScannerViewController: UIViewController {
     let vm: ScannerViewModel
 
     private lazy var cameraController = CameraController(previewContainer: self.previewContainer)
+    private var capturedImages: [UIImage] = []
+
+    private let stepSeconds: TimeInterval = 1 // 步驟秒數
+    private let captureIntervalSeconds: TimeInterval = 0.9 // 拍照間隔秒數
+    private var captureTimer: Timer?
+
     private var cancellables = Set<AnyCancellable>()
+
+    // MARK: -
 
     init(photoRatio: ScannerViewModel.PhotoRatio) {
         self.photoRatio = photoRatio
@@ -150,7 +158,44 @@ private extension ScannerViewController {
         }
     }
 
+    func startScanning() {
+        // start animation
+        self.timerView1.startAnimation()
+
+        // start capture timer
+        self.captureTimer = Timer.scheduledTimer(withTimeInterval: self.captureIntervalSeconds,
+                                                 repeats: true,
+                                                 block: { [weak self] _ in
+            self?.cameraController.captureImage()
+        })
+    }
+
+    func stopScanning() {
+        self.captureTimer?.invalidate()
+    }
+}
+
+private extension ScannerViewController {
+
     func bindViewModel() {
+        vm.errorCaptured
+            .throttle(for: .seconds(1), scheduler: DispatchQueue.main, latest: false)
+            .sink { [weak self] error in
+                let alertTitle = "Failed to save photos"
+                let alertMessage = (error as? ScannerViewModel.PhotoLibraryError)?.string ?? error.localizedDescription
+                let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+                let closeAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(closeAction)
+                self?.present(alert, animated: true, completion: nil)
+            }
+            .store(in: &cancellables)
+
+        vm.imagesSaved
+            .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.showFinishDialog()
+            }
+            .store(in: &cancellables)
     }
 
     func bindTimerViews() {
@@ -179,10 +224,14 @@ private extension ScannerViewController {
         timerView3.$state
             .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
+                guard let self = self else { return }
                 switch state {
                 case .ready: break
-                case .animating: self?.messageLabel.text = "请微微笑"
-                case .finished: self?.showFinishDialog()
+                case .animating: self.messageLabel.text = "请微微笑"
+                case .finished:
+                    self.stopScanning()
+                    self.vm.saveImages(self.capturedImages)
+                    self.capturedImages.removeAll()
                 }
             }
             .store(in: &cancellables)
@@ -192,23 +241,21 @@ private extension ScannerViewController {
         cameraController.errorCatched
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
-                let alert = UIAlertController(title: error.string, message: nil, preferredStyle: .alert)
+                let alertTitle = "Failed to open camera"
+                let alertMessage = error.string
+                let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
                 let closeAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
                 alert.addAction(closeAction)
                 self?.present(alert, animated: true, completion: nil)
             }
             .store(in: &cancellables)
 
-//        cameraController.imageCaptured
-//            .receive(on: DispatchQueue.main)
-//            .sink { [weak self] image in
-//                self?.capturedImageView.image = image
-//            }
-//            .store(in: &cancellables)
-    }
-
-    func startScanning() {
-        self.timerView1.startAnimation()
+        cameraController.imageCaptured
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] image in
+                self?.capturedImages.append(image)
+            }
+            .store(in: &cancellables)
     }
 }
 

@@ -417,6 +417,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FaceScanner/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "App 需要您的同意, 才能訪問相機";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "App 需要您的同意, 才能新增照片至相冊";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -445,6 +446,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FaceScanner/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "App 需要您的同意, 才能訪問相機";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "App 需要您的同意, 才能新增照片至相冊";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
