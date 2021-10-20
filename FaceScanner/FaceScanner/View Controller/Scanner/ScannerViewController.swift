@@ -53,8 +53,15 @@ class ScannerViewController: UIViewController {
 
     // MARK: -
 
-    let photoRatio: ScannerViewModel.PhotoRatio
-    let vm: ScannerViewModel
+    enum PhotoRatio {
+        case auto // depends on resolution
+        case photo // 4:3
+        case square // 1:1
+    }
+
+    let photoRatio: PhotoRatio
+
+    let vm = ScannerViewModel()
 
     private lazy var cameraController = CameraController(previewContainer: self.previewContainer)
     private var capturedImages: [UIImage] = []
@@ -67,10 +74,8 @@ class ScannerViewController: UIViewController {
 
     // MARK: -
 
-    init(photoRatio: ScannerViewModel.PhotoRatio) {
+    init(photoRatio: PhotoRatio) {
         self.photoRatio = photoRatio
-        self.vm = ScannerViewModel(photoRatio: photoRatio)
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -230,7 +235,7 @@ private extension ScannerViewController {
                 case .animating: self.messageLabel.text = "请微微笑"
                 case .finished:
                     self.stopScanning()
-                    self.vm.saveImages(self.capturedImages)
+                    self.vm.saveImages(self.capturedImages, photoRatio: self.photoRatio)
                     self.capturedImages.removeAll()
                 }
             }

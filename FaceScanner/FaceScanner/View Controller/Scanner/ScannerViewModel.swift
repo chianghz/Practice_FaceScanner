@@ -12,11 +12,12 @@ import Photos
 
 class ScannerViewModel: NSObject {
 
-    enum PhotoRatio {
-        case auto // depends on resolution
-        case photo // 4:3
-        case square // 1:1
-    }
+    // MARK: - Publishers
+
+    private(set) var imagesSaved = PassthroughSubject<Void, Never>()
+    private(set) var errorCaptured = PassthroughSubject<Error, Never>()
+
+    // MARK: -
 
     enum PhotoLibraryError: Error {
         case notAuthorized
@@ -28,20 +29,7 @@ class ScannerViewModel: NSObject {
         }
     }
 
-    // MARK: - Publishers
-
-    private(set) var imagesSaved = PassthroughSubject<Void, Never>()
-    private(set) var errorCaptured = PassthroughSubject<Error, Never>()
-
-    // MARK: -
-
-    let photoRatio: PhotoRatio
-
-    init(photoRatio: PhotoRatio) {
-        self.photoRatio = photoRatio
-    }
-
-    func saveImages(_ images: [UIImage]) {
+    func saveImages(_ images: [UIImage], photoRatio: ScannerViewController.PhotoRatio) {
         PHPhotoLibrary.requestAuthorization(for: PHAccessLevel.addOnly) { [weak self] status in
             guard let self = self else { return }
             guard status == .authorized else {
