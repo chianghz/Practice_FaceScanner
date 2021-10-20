@@ -19,11 +19,13 @@ class ScannerViewController: UIViewController {
     @IBOutlet weak var timerContainerView2: UIView!
     @IBOutlet weak var timerContainerView3: UIView!
 
-    @IBOutlet weak var messageLabel: UILabel!
-
     private let timerView1 = ScannerTimerView(text: "1", duration: 3)
     private let timerView2 = ScannerTimerView(text: "2", duration: 3)
     private let timerView3 = ScannerTimerView(text: "3", duration: 3)
+
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var imageViewFace: UIImageView!
+    @IBOutlet weak var imageViewFocus: UIImageView!
 
     private lazy var finishDialog: FinishDialogViewController = {
         let dialog = FinishDialogViewController()
@@ -34,6 +36,18 @@ class ScannerViewController: UIViewController {
     private let previewContainer: UIView = {
         let view = UIView()
         view.backgroundColor = .red
+        return view
+    }()
+
+    private let blackMaskTop: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        return view
+    }()
+
+    private let blackMaskBottom: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
         return view
     }()
 
@@ -90,11 +104,12 @@ class ScannerViewController: UIViewController {
 private extension ScannerViewController {
 
     func initLayout() {
-        view.backgroundColor = .black
         timerContainerView1.backgroundColor = .clear
         timerContainerView2.backgroundColor = .clear
         timerContainerView3.backgroundColor = .clear
         messageLabel.text = nil
+
+        imageViewFace.contentMode = photoRatio == .auto ? .scaleAspectFill : .scaleAspectFit
     }
 
     func initConstraints() {
@@ -108,16 +123,30 @@ private extension ScannerViewController {
         view.insertSubview(previewContainer, at: 0)
         previewContainer.snp.makeConstraints {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalTo(messageLabel.snp.bottom).offset(15)
 
             switch photoRatio {
             case .auto:
-                $0.bottom.equalTo(view.safeAreaLayoutGuide)
+                $0.top.bottom.equalTo(view.safeAreaLayoutGuide)
+
             case .photo:
+                $0.top.equalTo(imageViewFocus.snp.top).offset(-60)
                 $0.height.equalTo(previewContainer.snp.width).multipliedBy(4.0/3.0)
+
             case .square:
+                $0.top.equalTo(imageViewFocus.snp.top).offset(-30)
                 $0.height.equalTo(previewContainer.snp.width)
             }
+        }
+
+        view.insertSubview(blackMaskTop, aboveSubview: imageViewFace)
+        blackMaskTop.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(previewContainer.snp.top)
+        }
+        view.insertSubview(blackMaskBottom, aboveSubview: imageViewFace)
+        blackMaskBottom.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.top.equalTo(previewContainer.snp.bottom)
         }
     }
 

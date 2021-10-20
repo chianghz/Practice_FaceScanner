@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScannerViewController" customModule="FaceScanner" customModuleProvider="target">
             <connections>
                 <outlet property="closeButton" destination="c61-Nu-Jph" id="UVw-XJ-rPV"/>
+                <outlet property="imageViewFace" destination="aEH-Ud-kg7" id="sos-hF-OE6"/>
+                <outlet property="imageViewFocus" destination="wXp-rk-sKs" id="eUt-Ah-Aim"/>
                 <outlet property="messageLabel" destination="Kn6-rM-Zw0" id="Ncv-Ki-bx9"/>
                 <outlet property="stackView" destination="dVj-mY-bTd" id="3rH-5N-tcM"/>
                 <outlet property="timerContainerView1" destination="lUv-FL-HMD" id="jIx-nK-K6H"/>
@@ -25,7 +27,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_face_bg" translatesAutoresizingMaskIntoConstraints="NO" id="aEH-Ud-kg7">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_face_bg" translatesAutoresizingMaskIntoConstraints="NO" id="aEH-Ud-kg7">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dVj-mY-bTd">
@@ -71,7 +73,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_focus" translatesAutoresizingMaskIntoConstraints="NO" id="wXp-rk-sKs">
-                    <rect key="frame" x="30" y="306" width="354" height="354"/>
+                    <rect key="frame" x="30" y="256" width="354" height="354"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="wXp-rk-sKs" secondAttribute="height" multiplier="1:1" id="8hm-jl-PBa"/>
                     </constraints>
@@ -87,7 +89,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aEH-Ud-kg7" secondAttribute="bottom" id="LtU-ia-Bgl"/>
                 <constraint firstItem="wXp-rk-sKs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="NA4-8J-Iaz"/>
                 <constraint firstItem="aEH-Ud-kg7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="OEa-Hy-lux"/>
-                <constraint firstItem="wXp-rk-sKs" firstAttribute="centerY" secondItem="aEH-Ud-kg7" secondAttribute="centerY" constant="30" id="e0u-0f-pbM"/>
+                <constraint firstItem="wXp-rk-sKs" firstAttribute="centerY" secondItem="aEH-Ud-kg7" secondAttribute="centerY" constant="-20" id="e0u-0f-pbM"/>
                 <constraint firstItem="aEH-Ud-kg7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lNu-fM-9VY"/>
                 <constraint firstItem="c61-Nu-Jph" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="m4G-Fs-THa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c61-Nu-Jph" secondAttribute="trailing" constant="16" id="qxV-qP-yWR"/>
