@@ -35,7 +35,7 @@ class ScannerViewController: UIViewController {
 
     private let previewContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = .black
         return view
     }()
 
@@ -82,10 +82,10 @@ class ScannerViewController: UIViewController {
 
         cameraController.checkPermissions { [weak self] authorized in
             guard authorized else { return }
-//            self?.cameraController.setup()
+            self?.cameraController.setup()
 
-            DispatchQueue.main.async {
-                self?.timerView1.startAnimation()
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                self?.startScanning()
             }
         }
     }
@@ -206,6 +206,10 @@ private extension ScannerViewController {
 //            }
 //            .store(in: &cancellables)
     }
+
+    func startScanning() {
+        self.timerView1.startAnimation()
+    }
 }
 
 extension ScannerViewController: FinishDialogViewControllerDelegate {
@@ -223,6 +227,6 @@ extension ScannerViewController: FinishDialogViewControllerDelegate {
 
     func finishDialogViewController(_ vc: FinishDialogViewController, didPressAgainButton: Void) {
         [timerView1, timerView2, timerView3].forEach { $0.reset() }
-        timerView1.startAnimation()
+        self.startScanning()
     }
 }

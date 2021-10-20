@@ -130,7 +130,9 @@ private extension CameraController {
             // commit configuration
             self.captureSession.commitConfiguration()
 
-            self.captureSession.startRunning()
+            DispatchQueue.main.async {
+                self.captureSession.startRunning()
+            }
         }
     }
 
