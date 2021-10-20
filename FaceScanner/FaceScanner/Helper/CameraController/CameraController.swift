@@ -48,8 +48,33 @@ class CameraController: NSObject {
             }
     }
 
+    /// Setup Capture Session then start
     func setup() {
         self.setupAndStartCaptureSession()
+    }
+
+    func getCaptureResolution() -> CGSize {
+        // Define default resolution
+        var resolution = CGSize(width: 0, height: 0)
+
+        // Get cur video device
+        let curVideoDevice = currentCameraPosition == .front ? frontCamera : backCamera
+
+        // Set if video portrait orientation
+        let orientation = UIDevice.current.orientation
+        let portraitOrientation = orientation == .portrait || orientation == .portraitUpsideDown
+
+        // Get video dimensions
+        if let formatDescription = curVideoDevice?.activeFormat.formatDescription {
+            let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
+            resolution = CGSize(width: CGFloat(dimensions.width), height: CGFloat(dimensions.height))
+            if portraitOrientation {
+                resolution = CGSize(width: resolution.height, height: resolution.width)
+            }
+        }
+
+        // Return resolution
+        return resolution
     }
 
     func switchCamera() {
@@ -63,6 +88,10 @@ class CameraController: NSObject {
         }
         let settings = AVCapturePhotoSettings()
         self.photoOutput.capturePhoto(with: settings, delegate: self)
+    }
+
+    func stop() {
+        captureSession.stopRunning()
     }
 }
 
@@ -82,8 +111,8 @@ private extension CameraController {
             self.captureSession.beginConfiguration()
 
             // session specific configuration
-            if self.captureSession.canSetSessionPreset(.photo) {
-                self.captureSession.sessionPreset = .photo
+            if self.captureSession.canSetSessionPreset(.high) {
+                self.captureSession.sessionPreset = .high
             }
 
             // setup inputs
@@ -176,8 +205,9 @@ private extension CameraController {
 
     func setupPreviewLayer(on view: UIView) {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
-        previewLayer.frame = view.layer.frame
+        previewLayer.frame = view.layer.bounds
     }
 
     func switchCameraInput() {

@@ -28,7 +28,8 @@ private extension HomeViewController {
     }
 
     @objc func startButtonViewTapped() {
-        let scannerVC = ScannerViewController(nibName: nil, bundle: nil)
+        let ratios: [ScannerViewModel.PhotoRatio] = [.auto, .photo, .square]
+        let scannerVC = ScannerViewController(photoRatio: ratios.randomElement()!)
         scannerVC.modalPresentationStyle = .fullScreen
         scannerVC.modalTransitionStyle = .crossDissolve
         self.present(scannerVC, animated: true, completion: nil)

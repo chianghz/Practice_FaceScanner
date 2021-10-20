@@ -33,15 +33,28 @@ class ScannerViewController: UIViewController {
 
     private let previewContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .red
         return view
     }()
 
-    // MARK: - Variables
+    // MARK: -
 
-    private var cancellables = Set<AnyCancellable>()
+    let photoRatio: ScannerViewModel.PhotoRatio
+    let vm: ScannerViewModel
 
     private lazy var cameraController = CameraController(previewContainer: self.previewContainer)
+    private var cancellables = Set<AnyCancellable>()
+
+    init(photoRatio: ScannerViewModel.PhotoRatio) {
+        self.photoRatio = photoRatio
+        self.vm = ScannerViewModel(photoRatio: photoRatio)
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +62,24 @@ class ScannerViewController: UIViewController {
         initLayout()
         initConstraints()
 
+        bindViewModel()
         bindTimerViews()
         bindCameraController()
 
         cameraController.checkPermissions { [weak self] authorized in
             guard authorized else { return }
-            self?.cameraController.setup()
+//            self?.cameraController.setup()
 
             DispatchQueue.main.async {
                 self?.timerView1.startAnimation()
             }
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+//        self.cameraController.stop()
     }
 
     @IBAction func closeButtonPressed(_ sender: Any) {
@@ -70,6 +90,7 @@ class ScannerViewController: UIViewController {
 private extension ScannerViewController {
 
     func initLayout() {
+        view.backgroundColor = .black
         timerContainerView1.backgroundColor = .clear
         timerContainerView2.backgroundColor = .clear
         timerContainerView3.backgroundColor = .clear
@@ -85,7 +106,22 @@ private extension ScannerViewController {
         timerView3.snp.makeConstraints { $0.edges.equalToSuperview() }
 
         view.insertSubview(previewContainer, at: 0)
-        previewContainer.snp.makeConstraints { $0.edges.equalToSuperview() }
+        previewContainer.snp.makeConstraints {
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(messageLabel.snp.bottom).offset(15)
+
+            switch photoRatio {
+            case .auto:
+                $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            case .photo:
+                $0.height.equalTo(previewContainer.snp.width).multipliedBy(4.0/3.0)
+            case .square:
+                $0.height.equalTo(previewContainer.snp.width)
+            }
+        }
+    }
+
+    func bindViewModel() {
     }
 
     func bindTimerViews() {
