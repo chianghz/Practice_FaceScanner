@@ -19,6 +19,7 @@
 		0A7AF485270FEDEC005D9F03 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A7AF484270FEDEC005D9F03 /* SnapKit */; };
 		0A7AF48727102887005D9F03 /* CircleProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */; };
 		0A8566B8272016EF004DA143 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8566B7272016EF004DA143 /* UIImage+Extension.swift */; };
+		0A8566BE27216064004DA143 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8566BD27216064004DA143 /* Bank.swift */; };
 		0A8A0AD1271032A2000ED19D /* ScannerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */; };
 		0AE38B632716AC75001709BB /* FinishDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE38B612716AC75001709BB /* FinishDialogViewController.swift */; };
 		0AE38B642716AC75001709BB /* FinishDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE38B622716AC75001709BB /* FinishDialogViewController.xib */; };
@@ -40,6 +41,7 @@
 		0A7AF47F270EFEE5005D9F03 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBarView.swift; sourceTree = "<group>"; };
 		0A8566B7272016EF004DA143 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		0A8566BD27216064004DA143 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTimerView.swift; sourceTree = "<group>"; };
 		0AE38B612716AC75001709BB /* FinishDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishDialogViewController.swift; sourceTree = "<group>"; };
 		0AE38B622716AC75001709BB /* FinishDialogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishDialogViewController.xib; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		0A7AF471270EEF5D005D9F03 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A8566BD27216064004DA143 /* Bank.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A7AF45B270EEAEC005D9F03 /* AppDelegate.swift in Sources */,
+				0A8566BE27216064004DA143 /* Bank.swift in Sources */,
 				0AE38B9B271980B8001709BB /* CameraController+Extension.swift in Sources */,
 				0AE38B9A271980B8001709BB /* CameraController.swift in Sources */,
 				0A7AF48727102887005D9F03 /* CircleProgressBarView.swift in Sources */,

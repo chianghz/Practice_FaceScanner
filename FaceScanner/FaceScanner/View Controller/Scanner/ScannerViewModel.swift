@@ -29,7 +29,7 @@ class ScannerViewModel: NSObject {
         }
     }
 
-    func saveImages(_ images: [UIImage], bounds: CGRect) {
+    func saveImages(_ images: [UIImage], bounds: CGRect, resolution: Bank.Resolution, format: Bank.ImageFormat) {
         PHPhotoLibrary.requestAuthorization(for: PHAccessLevel.addOnly) { [weak self] status in
             guard let self = self else { return }
             guard status == .authorized else {
