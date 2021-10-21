@@ -15,14 +15,10 @@ class HomeViewController: UIViewController {
 
     // MARK: - View Components
 
-    @IBOutlet weak var bankTextField: UITextField! {
+    @IBOutlet weak var bottomView: UIView! {
         didSet {
-            bankTextField.text = nil
-            bankTextField.textColor = UIColor(named: "myPurple")
-            bankTextField.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-
-            bankTextField.delegate = self
-            bankTextField.placeholder = "请选择银行"
+            bottomView.layer.cornerRadius = 10
+            bottomView.clipsToBounds = true
         }
     }
 
@@ -34,16 +30,31 @@ class HomeViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var startButtonView: UIView! {
+    @IBOutlet weak var bankTextField: UITextField! {
         didSet {
-            startButtonView.layer.cornerRadius = 10
-            startButtonView.clipsToBounds = true
-            let tapGR = UITapGestureRecognizer(target: self, action: #selector(startButtonViewTapped))
-            startButtonView.addGestureRecognizer(tapGR)
-            startButtonView.isUserInteractionEnabled = true
+            bankTextField.text = nil
+            bankTextField.textColor = UIColor(named: "myPurple")
+            bankTextField.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+
+            bankTextField.delegate = self
+            bankTextField.placeholder = "请选择银行"
         }
     }
 
+    @IBOutlet weak var startButtonView: UIView! {
+        didSet {
+            let tapGR = UITapGestureRecognizer(target: self, action: #selector(startButtonViewTapped))
+            startButtonView.addGestureRecognizer(tapGR)
+            startButtonView.isUserInteractionEnabled = false
+        }
+    }
+
+    @IBOutlet weak var startButton: UIButton! {
+        didSet {
+            startButton.isEnabled = false
+            startButton.isUserInteractionEnabled = false
+        }
+    }
 }
 
 private extension HomeViewController {
@@ -64,13 +75,19 @@ private extension HomeViewController {
         let alert = UIAlertController()
         for bank in Constants.banks {
             let action = UIAlertAction(title: bank, style: .default) { [weak self] _ in
-                self?.bankTextField.text = bank
+                self?.didSelectedBank(bank: bank)
             }
             alert.addAction(action)
         }
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
 
         self.present(alert, animated: true, completion: nil)
+    }
+
+    func didSelectedBank(bank: String) {
+        self.bankTextField.text = bank
+        self.startButton.isEnabled = true
+        self.startButtonView.isUserInteractionEnabled = true
     }
 }
 

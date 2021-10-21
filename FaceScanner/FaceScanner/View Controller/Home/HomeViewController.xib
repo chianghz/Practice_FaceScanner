@@ -14,7 +14,9 @@
             <connections>
                 <outlet property="bankSelectionView" destination="VI9-TL-Q5q" id="L3s-EU-uYA"/>
                 <outlet property="bankTextField" destination="eh5-iz-vcQ" id="E6v-W0-Ai9"/>
-                <outlet property="startButtonView" destination="gNS-id-vyW" id="b2m-V5-Tsq"/>
+                <outlet property="bottomView" destination="gNS-id-vyW" id="Sgd-W8-BZh"/>
+                <outlet property="startButton" destination="Pyc-6g-QqO" id="C1W-Id-oEV"/>
+                <outlet property="startButtonView" destination="W3v-y3-73c" id="w9U-bp-uMD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -72,23 +74,45 @@
                                 <constraint firstItem="eh5-iz-vcQ" firstAttribute="leading" secondItem="VI9-TL-Q5q" secondAttribute="leading" constant="20" id="zjC-xi-dwI"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-6g-QqO">
-                            <rect key="frame" x="264" y="14" width="24" height="24"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Dc-xC-kgD" userLabel="Separator">
+                            <rect key="frame" x="247" y="10" width="1" height="32"/>
+                            <color key="backgroundColor" red="0.86274509803921573" green="0.87450980392156863" blue="0.92941176470588238" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="24" id="0bj-hD-qoN"/>
-                                <constraint firstAttribute="height" constant="24" id="MOn-Uk-BVj"/>
+                                <constraint firstAttribute="width" constant="1" id="OtF-MJ-whp"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="ico_arrow" title=""/>
-                        </button>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3v-y3-73c">
+                            <rect key="frame" x="248" y="0.0" width="56" height="52"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-6g-QqO">
+                                    <rect key="frame" x="16" y="14" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="24" id="0bj-hD-qoN"/>
+                                        <constraint firstAttribute="height" constant="24" id="MOn-Uk-BVj"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="ico_arrow" title=""/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Pyc-6g-QqO" secondAttribute="trailing" constant="16" id="6MK-zL-A0v"/>
+                                <constraint firstItem="Pyc-6g-QqO" firstAttribute="centerY" secondItem="W3v-y3-73c" secondAttribute="centerY" id="Agm-AA-iQG"/>
+                                <constraint firstItem="Pyc-6g-QqO" firstAttribute="leading" secondItem="W3v-y3-73c" secondAttribute="leading" constant="16" id="nP8-oF-qaD"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="7ZQ-ot-goY"/>
-                        <constraint firstAttribute="trailing" secondItem="Pyc-6g-QqO" secondAttribute="trailing" constant="16" id="KST-If-IpG"/>
+                        <constraint firstItem="W3v-y3-73c" firstAttribute="leading" secondItem="2Dc-xC-kgD" secondAttribute="trailing" id="FCI-BQ-TN1"/>
+                        <constraint firstAttribute="trailing" secondItem="W3v-y3-73c" secondAttribute="trailing" id="GZK-p1-YI0"/>
+                        <constraint firstItem="W3v-y3-73c" firstAttribute="top" secondItem="gNS-id-vyW" secondAttribute="top" id="Gtp-ty-IY1"/>
                         <constraint firstAttribute="bottom" secondItem="VI9-TL-Q5q" secondAttribute="bottom" id="NPS-gU-WYB"/>
                         <constraint firstItem="VI9-TL-Q5q" firstAttribute="top" secondItem="gNS-id-vyW" secondAttribute="top" id="NYa-bR-oE8"/>
-                        <constraint firstItem="Pyc-6g-QqO" firstAttribute="centerY" secondItem="gNS-id-vyW" secondAttribute="centerY" id="Wlo-Mo-bnz"/>
+                        <constraint firstItem="2Dc-xC-kgD" firstAttribute="top" secondItem="gNS-id-vyW" secondAttribute="top" constant="10" id="WZ3-NT-sXb"/>
+                        <constraint firstAttribute="bottom" secondItem="2Dc-xC-kgD" secondAttribute="bottom" constant="10" id="ab6-Wa-xNY"/>
+                        <constraint firstAttribute="bottom" secondItem="W3v-y3-73c" secondAttribute="bottom" id="mE4-GA-N2X"/>
                         <constraint firstItem="VI9-TL-Q5q" firstAttribute="leading" secondItem="gNS-id-vyW" secondAttribute="leading" id="uzc-Pq-FcV"/>
                     </constraints>
                 </view>
