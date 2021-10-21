@@ -18,6 +18,7 @@
 		0A7AF480270EFEE5005D9F03 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF47F270EFEE5005D9F03 /* ScannerViewModel.swift */; };
 		0A7AF485270FEDEC005D9F03 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A7AF484270FEDEC005D9F03 /* SnapKit */; };
 		0A7AF48727102887005D9F03 /* CircleProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */; };
+		0A8566B8272016EF004DA143 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8566B7272016EF004DA143 /* UIImage+Extension.swift */; };
 		0A8A0AD1271032A2000ED19D /* ScannerTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */; };
 		0AE38B632716AC75001709BB /* FinishDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE38B612716AC75001709BB /* FinishDialogViewController.swift */; };
 		0AE38B642716AC75001709BB /* FinishDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE38B622716AC75001709BB /* FinishDialogViewController.xib */; };
@@ -38,6 +39,7 @@
 		0A7AF47A270EFA06005D9F03 /* ScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScannerViewController.xib; sourceTree = "<group>"; };
 		0A7AF47F270EFEE5005D9F03 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBarView.swift; sourceTree = "<group>"; };
+		0A8566B7272016EF004DA143 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		0A8A0AD0271032A2000ED19D /* ScannerTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTimerView.swift; sourceTree = "<group>"; };
 		0AE38B612716AC75001709BB /* FinishDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishDialogViewController.swift; sourceTree = "<group>"; };
 		0AE38B622716AC75001709BB /* FinishDialogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishDialogViewController.xib; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				0A7AF46F270EEE03005D9F03 /* Application */,
+				0A8566B6272016D9004DA143 /* Extension */,
 				0AE38B9627198011001709BB /* Helper */,
 				0A7AF471270EEF5D005D9F03 /* Model */,
 				0A7AF46E270EEDF3005D9F03 /* Resource */,
@@ -156,6 +159,14 @@
 				0A7AF48627102887005D9F03 /* CircleProgressBarView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0A8566B6272016D9004DA143 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0A8566B7272016EF004DA143 /* UIImage+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		0AE38B602716984D001709BB /* FinishDialog */ = {
@@ -273,6 +284,7 @@
 				0A7AF47B270EFA06005D9F03 /* ScannerViewController.swift in Sources */,
 				0A7AF480270EFEE5005D9F03 /* ScannerViewModel.swift in Sources */,
 				0A7AF45D270EEAEC005D9F03 /* SceneDelegate.swift in Sources */,
+				0A8566B8272016EF004DA143 /* UIImage+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

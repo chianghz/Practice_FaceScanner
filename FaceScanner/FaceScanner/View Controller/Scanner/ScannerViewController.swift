@@ -66,8 +66,8 @@ class ScannerViewController: UIViewController {
     private lazy var cameraController = CameraController(previewContainer: self.previewContainer)
     private var capturedImages: [UIImage] = []
 
-    private let stepSeconds: TimeInterval = 1 // 步驟秒數
-    private let captureIntervalSeconds: TimeInterval = 0.9 // 拍照間隔秒數
+    private let stepSeconds: TimeInterval = 5 // 步驟秒數
+    private let captureIntervalSeconds: TimeInterval = 2.3 // 拍照間隔秒數
     private var captureTimer: Timer?
 
     private var cancellables = Set<AnyCancellable>()
@@ -106,7 +106,7 @@ class ScannerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-//        self.cameraController.stop()
+        self.cameraController.stop()
     }
 
     @IBAction func closeButtonPressed(_ sender: Any) {
@@ -121,7 +121,6 @@ private extension ScannerViewController {
         timerContainerView2.backgroundColor = .clear
         timerContainerView3.backgroundColor = .clear
         messageLabel.text = nil
-
         imageViewFace.contentMode = photoRatio == .auto ? .scaleAspectFill : .scaleAspectFit
     }
 
@@ -235,7 +234,7 @@ private extension ScannerViewController {
                 case .animating: self.messageLabel.text = "请微微笑"
                 case .finished:
                     self.stopScanning()
-                    self.vm.saveImages(self.capturedImages, photoRatio: self.photoRatio)
+                    self.vm.saveImages(self.capturedImages, bounds: self.previewContainer.bounds)
                     self.capturedImages.removeAll()
                 }
             }

@@ -29,7 +29,7 @@ class ScannerViewModel: NSObject {
         }
     }
 
-    func saveImages(_ images: [UIImage], photoRatio: ScannerViewController.PhotoRatio) {
+    func saveImages(_ images: [UIImage], bounds: CGRect) {
         PHPhotoLibrary.requestAuthorization(for: PHAccessLevel.addOnly) { [weak self] status in
             guard let self = self else { return }
             guard status == .authorized else {
@@ -37,7 +37,10 @@ class ScannerViewModel: NSObject {
                 return
             }
             for image in images {
-                UIImageWriteToSavedPhotosAlbum(image, self, #selector(Self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+                let scale = image.size.width / UIScreen.main.bounds.width
+                if let croppedImage = image.cropImage(rect: bounds, scale: scale) {
+                    UIImageWriteToSavedPhotosAlbum(croppedImage, self, #selector(Self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+                }
             }
         }
     }
