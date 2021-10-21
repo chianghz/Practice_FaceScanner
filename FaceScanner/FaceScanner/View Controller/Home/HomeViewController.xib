@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="FaceScanner" customModuleProvider="target">
             <connections>
+                <outlet property="bankSelectionView" destination="VI9-TL-Q5q" id="L3s-EU-uYA"/>
+                <outlet property="bankTextField" destination="eh5-iz-vcQ" id="E6v-W0-Ai9"/>
                 <outlet property="startButtonView" destination="gNS-id-vyW" id="b2m-V5-Tsq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -45,12 +47,31 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNS-id-vyW">
                     <rect key="frame" x="55" y="790" width="304" height="52"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始刷脸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jO4-KK-pQS">
-                            <rect key="frame" x="20" y="15.5" width="73.5" height="21.5"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                            <color key="textColor" name="myPurple"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI9-TL-Q5q">
+                            <rect key="frame" x="0.0" y="0.0" width="136" height="52"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="UITextField" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eh5-iz-vcQ">
+                                    <rect key="frame" x="20" y="16.5" width="72" height="19"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="EPu-u1-ynA">
+                                    <rect key="frame" x="100" y="18" width="16" height="16"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="16" id="ob7-X6-m7y"/>
+                                        <constraint firstAttribute="width" constant="16" id="xVJ-Xi-VvN"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="eh5-iz-vcQ" firstAttribute="centerY" secondItem="VI9-TL-Q5q" secondAttribute="centerY" id="OLo-4g-0T9"/>
+                                <constraint firstItem="EPu-u1-ynA" firstAttribute="centerY" secondItem="VI9-TL-Q5q" secondAttribute="centerY" id="j7k-D9-Eu9"/>
+                                <constraint firstAttribute="trailing" secondItem="EPu-u1-ynA" secondAttribute="trailing" constant="20" id="oIY-Q4-Lcx"/>
+                                <constraint firstItem="EPu-u1-ynA" firstAttribute="leading" secondItem="eh5-iz-vcQ" secondAttribute="trailing" constant="8" id="sYg-ru-4fs"/>
+                                <constraint firstItem="eh5-iz-vcQ" firstAttribute="leading" secondItem="VI9-TL-Q5q" secondAttribute="leading" constant="20" id="zjC-xi-dwI"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-6g-QqO">
                             <rect key="frame" x="264" y="14" width="24" height="24"/>
                             <constraints>
@@ -64,10 +85,11 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="7ZQ-ot-goY"/>
-                        <constraint firstItem="jO4-KK-pQS" firstAttribute="centerY" secondItem="gNS-id-vyW" secondAttribute="centerY" id="BZv-TE-ySC"/>
                         <constraint firstAttribute="trailing" secondItem="Pyc-6g-QqO" secondAttribute="trailing" constant="16" id="KST-If-IpG"/>
-                        <constraint firstItem="jO4-KK-pQS" firstAttribute="leading" secondItem="gNS-id-vyW" secondAttribute="leading" constant="20" id="Rwj-hl-RdY"/>
+                        <constraint firstAttribute="bottom" secondItem="VI9-TL-Q5q" secondAttribute="bottom" id="NPS-gU-WYB"/>
+                        <constraint firstItem="VI9-TL-Q5q" firstAttribute="top" secondItem="gNS-id-vyW" secondAttribute="top" id="NYa-bR-oE8"/>
                         <constraint firstItem="Pyc-6g-QqO" firstAttribute="centerY" secondItem="gNS-id-vyW" secondAttribute="centerY" id="Wlo-Mo-bnz"/>
+                        <constraint firstItem="VI9-TL-Q5q" firstAttribute="leading" secondItem="gNS-id-vyW" secondAttribute="leading" id="uzc-Pq-FcV"/>
                     </constraints>
                 </view>
             </subviews>
@@ -93,6 +115,7 @@
     </objects>
     <resources>
         <image name="ico_arrow" width="24" height="24"/>
+        <image name="ico_arrow_down" width="64" height="64"/>
         <image name="ico_logo_launch" width="80" height="80"/>
         <image name="ico_text" width="134" height="21"/>
         <image name="img_launch" width="360" height="360"/>
