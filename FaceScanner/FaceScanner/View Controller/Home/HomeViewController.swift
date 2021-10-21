@@ -51,6 +51,18 @@ class HomeViewController: UIViewController {
             startButton.isUserInteractionEnabled = false
         }
     }
+
+    // MARK: - Variables
+
+    private var selectedBank: Bank? {
+        didSet {
+            guard let bank = selectedBank else { return }
+
+            self.bankTextField.text = bank.localizedString
+            self.startButton.isEnabled = true
+            self.startButtonView.isUserInteractionEnabled = true
+        }
+    }
 }
 
 private extension HomeViewController {
@@ -60,8 +72,9 @@ private extension HomeViewController {
     }
 
     @objc func startButtonViewTapped() {
-        let ratios: [ScannerViewController.PhotoRatio] = [.auto, .photo, .square]
-        let scannerVC = ScannerViewController(photoRatio: ratios.randomElement()!)
+        guard let bank = selectedBank else { return }
+
+        let scannerVC = ScannerViewController(bank: bank)
         scannerVC.modalPresentationStyle = .fullScreen
         scannerVC.modalTransitionStyle = .crossDissolve
         self.present(scannerVC, animated: true, completion: nil)
@@ -71,19 +84,13 @@ private extension HomeViewController {
         let alert = UIAlertController()
         for bank in Bank.allCases {
             let action = UIAlertAction(title: bank.localizedString, style: .default) { [weak self] _ in
-                self?.didSelectedBank(bank: bank)
+                self?.selectedBank = bank
             }
             alert.addAction(action)
         }
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
 
         self.present(alert, animated: true, completion: nil)
-    }
-
-    func didSelectedBank(bank: Bank) {
-        self.bankTextField.text = bank.localizedString
-        self.startButton.isEnabled = true
-        self.startButtonView.isUserInteractionEnabled = true
     }
 }
 

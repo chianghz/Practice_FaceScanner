@@ -53,13 +53,7 @@ class ScannerViewController: UIViewController {
 
     // MARK: -
 
-    enum PhotoRatio {
-        case auto // depends on resolution
-        case photo // 4:3
-        case square // 1:1
-    }
-
-    let photoRatio: PhotoRatio
+    let bank: Bank
 
     let vm = ScannerViewModel()
 
@@ -74,8 +68,8 @@ class ScannerViewController: UIViewController {
 
     // MARK: -
 
-    init(photoRatio: PhotoRatio) {
-        self.photoRatio = photoRatio
+    init(bank: Bank) {
+        self.bank = bank
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -121,7 +115,7 @@ private extension ScannerViewController {
         timerContainerView2.backgroundColor = .clear
         timerContainerView3.backgroundColor = .clear
         messageLabel.text = nil
-        imageViewFace.contentMode = photoRatio == .auto ? .scaleAspectFill : .scaleAspectFit
+        imageViewFace.contentMode = (bank.resolution == .auto) ? .scaleAspectFill : .scaleAspectFit
     }
 
     func initConstraints() {
@@ -136,15 +130,15 @@ private extension ScannerViewController {
         previewContainer.snp.makeConstraints {
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
 
-            switch photoRatio {
+            switch bank.resolution {
             case .auto:
                 $0.top.bottom.equalTo(view.safeAreaLayoutGuide)
 
-            case .photo:
+            case ._480x640:
                 $0.top.equalTo(imageViewFocus.snp.top).offset(-60)
                 $0.height.equalTo(previewContainer.snp.width).multipliedBy(4.0/3.0)
 
-            case .square:
+            case ._256x256:
                 $0.top.equalTo(imageViewFocus.snp.top).offset(-30)
                 $0.height.equalTo(previewContainer.snp.width)
             }
@@ -234,7 +228,10 @@ private extension ScannerViewController {
                 case .animating: self.messageLabel.text = "请微微笑"
                 case .finished:
                     self.stopScanning()
-                    self.vm.saveImages(self.capturedImages, bounds: self.previewContainer.bounds)
+                    self.vm.saveImages(self.capturedImages,
+                                       bounds: self.previewContainer.bounds,
+                                       resolution: self.bank.resolution,
+                                       format: self.bank.imageFormat)
                     self.capturedImages.removeAll()
                 }
             }
