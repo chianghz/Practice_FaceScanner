@@ -9,10 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    struct Constants {
-        static let banks = ["兴业银行", "邮政银行", "中国银行", "中国工商银行", "中国农业银行"]
-    }
-
     // MARK: - View Components
 
     @IBOutlet weak var bottomView: UIView! {
@@ -73,8 +69,8 @@ private extension HomeViewController {
 
     func showBankSelectionSheet() {
         let alert = UIAlertController()
-        for bank in Constants.banks {
-            let action = UIAlertAction(title: bank, style: .default) { [weak self] _ in
+        for bank in Bank.allCases {
+            let action = UIAlertAction(title: bank.localizedString, style: .default) { [weak self] _ in
                 self?.didSelectedBank(bank: bank)
             }
             alert.addAction(action)
@@ -84,8 +80,8 @@ private extension HomeViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
-    func didSelectedBank(bank: String) {
-        self.bankTextField.text = bank
+    func didSelectedBank(bank: Bank) {
+        self.bankTextField.text = bank.localizedString
         self.startButton.isEnabled = true
         self.startButtonView.isUserInteractionEnabled = true
     }
