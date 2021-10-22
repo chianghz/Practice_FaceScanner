@@ -60,8 +60,14 @@ class ScannerViewController: UIViewController {
     private lazy var cameraController = CameraController(previewContainer: self.previewContainer)
     private var capturedImages: [UIImage] = []
 
+    #if DEBUG
+    private let stepSeconds: TimeInterval = 1 // 步驟秒數
+    private let captureIntervalSeconds: TimeInterval = 0.9 // 拍照間隔秒數
+    #else
     private let stepSeconds: TimeInterval = 5 // 步驟秒數
     private let captureIntervalSeconds: TimeInterval = 2.3 // 拍照間隔秒數
+    #endif
+
     private var captureTimer: Timer?
 
     private var cancellables = Set<AnyCancellable>()
@@ -230,8 +236,7 @@ private extension ScannerViewController {
                     self.stopScanning()
                     self.vm.saveImages(self.capturedImages,
                                        bounds: self.previewContainer.bounds,
-                                       resolution: self.bank.resolution,
-                                       format: self.bank.imageFormat)
+                                       bank: self.bank)
                     self.capturedImages.removeAll()
                 }
             }
