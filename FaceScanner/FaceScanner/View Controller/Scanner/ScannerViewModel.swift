@@ -29,24 +29,42 @@ class ScannerViewModel: NSObject {
         }
     }
 
-    func saveImages(_ images: [UIImage], bounds: CGRect, resolution: Bank.Resolution, format: Bank.ImageFormat) {
+    func saveImages(_ images: [UIImage], bounds: CGRect, bank: Bank) {
         PHPhotoLibrary.requestAuthorization(for: PHAccessLevel.addOnly) { [weak self] status in
             guard let self = self else { return }
             guard status == .authorized else {
                 self.errorCaptured.send(PhotoLibraryError.notAuthorized)
                 return
             }
-            for image in images {
-                let scale = image.size.width / UIScreen.main.bounds.width
-                if let croppedImage = image.cropImage(rect: bounds, scale: scale) {
-                    UIImageWriteToSavedPhotosAlbum(croppedImage, self, #selector(Self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-                }
-            }
+
+            let croppedImages = self.cropImages(images, bounds: bounds)
+            let resizedImages = self.resizeImages(croppedImages, resolution: bank.resolution)
+            self.saveImages(croppedImages)
+            self.saveImages(resizedImages)
         }
     }
 }
 
 private extension ScannerViewModel {
+
+    func cropImages(_ images: [UIImage], bounds: CGRect) -> [UIImage] {
+        return images.compactMap { image in
+            let scale = image.size.width / UIScreen.main.bounds.width
+            return image.cropImage(rect: bounds, scale: scale)
+        }
+    }
+
+    func resizeImages(_ images: [UIImage], resolution: Bank.Resolution) -> [UIImage] {
+        guard let size = resolution.size ?? images.first?.size else { return [] }
+        let targetSize = CGSize(width: size.width / 3.0, height: size.height / 3.0)
+        return images.map { $0.imageResized(to: targetSize) }
+    }
+
+    func saveImages(_ images: [UIImage]) {
+        for image in images {
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(Self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
+    }
 
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 enum Bank: CaseIterable {
     case 兴业银行
@@ -44,6 +45,14 @@ extension Bank {
         case auto
         case _480x640
         case _256x256
+
+        var size: CGSize? {
+            switch self {
+            case .auto: return nil
+            case ._480x640: return CGSize(width: 480, height: 640)
+            case ._256x256: return CGSize(width: 256, height: 256)
+            }
+        }
     }
 
     enum ImageFormat {
